@@ -28,6 +28,7 @@
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
+    font-family: Oswald
   }
   
   .nav a:hover {
@@ -38,12 +39,16 @@
   .quienes-somos {
     text-align: center;
     margin: 3rem 0;
+    margin-top: 100px;
+    color: #5C4033;
   }
   
   .quienes-somos h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    margin: 0px auto;
+    margin-top: 130px;
+    font-family: sans-serif;
+    
   }
   
 .quienes-somos p {
@@ -56,21 +61,23 @@
     color: #5C4033;
     /* Café oscuro */
     text-align: center;
-    background: rgba(245, 245, 220, 1.0);
+    background: rgba(245, 245, 220, 0.5);
     /* Beige claro translúcido */
     padding: 30px 50px;
     border-radius: 20px;
     max-width: 800px;
-    margin: 10px auto;
+    margin: 0px auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   
   /* SERVICIOS */
   .titulo-servicios {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #5C4033;
-    margin: 5rem 0 1rem;
+    margin: 10rem 0 1rem;
+    margin-top: 0px;
+    font-family: sans-serif;
   }
   
   .container-card {
