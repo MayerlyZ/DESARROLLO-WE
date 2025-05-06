@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function ReservacionList() {
   const [reservaciones, setReservaciones] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     cargarReservaciones();
@@ -27,6 +29,10 @@ function ReservacionList() {
     } catch (error) {
       console.error("Error al eliminar la reservación:", error);
     }
+  };
+
+  const editarReservacion = (id) => {
+    navigate(`/admin/editar-reservacion/${id}`);
   };
 
   return (
@@ -57,6 +63,12 @@ function ReservacionList() {
                 <td>${r.precioTotal?.toLocaleString('es-CO')}</td>
                 <td>
                   <button
+                    className="btn btn-primary btn-sm me-2"
+                    onClick={() => editarReservacion(r.id)}
+                  >
+                    Editar
+                  </button>
+                  <button
                     className="btn btn-danger btn-sm"
                     onClick={() => eliminarReservacion(r.id)}
                   >
@@ -73,3 +85,4 @@ function ReservacionList() {
 }
 
 export default ReservacionList;
+

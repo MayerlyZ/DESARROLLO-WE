@@ -1,9 +1,18 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom'; // 🔥 Solo importas Routes y Route, NO BrowserRouter
+import { Routes, Route, Link } from 'react-router-dom';
+
 import HabitacionesList from './components/HabitacionesList';
 import CrearHabitacion from './components/CrearHabitacion';
+import EditarHabitacion from './components/EditarHabitacion';
+
 import ReservacionList from './components/ReservacionList';
 import CrearReservacion from './components/CrearReservacion';
+import EditarReservacion from './components/EditarReservacion';
+
+import ServiciosList from './components/ServiciosList'; // ✅ Import agregado
+import CrearServicios from './components/CrearServicios';
+import EditarServicios from './components/EditarSevicios'; // Asegúrate de que el nombre del archivo sea correcto
+
 import Inicio from './components/Inicio';
 
 function Admin() {
@@ -15,16 +24,22 @@ function Admin() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/habitaciones">Lista Habitaciones</Link>
+                <Link className="nav-link" to="/admin/habitaciones">Lista Habitaciones</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/crear-habitacion">Crear Habitación</Link>
+                <Link className="nav-link" to="/admin/crear-habitacion">Crear Habitación</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/reservaciones">Lista Reservaciones</Link>
+                <Link className="nav-link" to="/admin/reservaciones">Lista Reservaciones</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/crear-reservacion">Crear Reservación</Link>
+                <Link className="nav-link" to="/admin/crear-reservacion">Crear Reservación</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/admin/servicios">Lista Servicios</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/admin/crear-servicio">Crear Servicios</Link>
               </li>
             </ul>
           </div>
@@ -33,13 +48,26 @@ function Admin() {
 
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/habitaciones" element={<HabitacionesList />} />
-        <Route path="/crear-habitacion" element={<CrearHabitacion />} />
-        <Route path="/reservaciones" element={<ReservacionList />} />
-        <Route path="/crear-reservacion" element={<CrearReservacion />} />
+
+        {/* Habitaciones */}
+        <Route path="habitaciones" element={<HabitacionesList />} />
+        <Route path="crear-habitacion" element={<CrearHabitacion />} />
+        <Route path="editar-habitacion/:id" element={<EditarHabitacion />} />
+
+        {/* Reservaciones */}
+        <Route path="reservaciones" element={<ReservacionList />} />
+        <Route path="crear-reservacion" element={<CrearReservacion />} />
+        <Route path="editar-reservacion/:id" element={<EditarReservacion />} />
+
+        {/* Servicios */}
+        <Route path="servicios" element={<ServiciosList />} />
+        <Route path="crear-servicio" element={<CrearServicios />} />
+        <Route path="editar-servicio/:id" element={<EditarServicios />} />
       </Routes>
     </div>
   );
 }
 
 export default Admin;
+
+

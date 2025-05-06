@@ -5,11 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  /*  fondo con transparencia */
-  background-image: linear-gradient(rgba(255, 255, 255, 1.1), rgba(255, 255, 255, 0.9)),
-    url('assets/fondo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { obtenerHabitaciones, eliminarHabitacion } from "../services/HabitaciService"; // Ajusta la ruta si es necesario
+import { useNavigate } from "react-router-dom";
+import { obtenerHabitaciones, eliminarHabitacion } from "../services/HabitaciService";
 
 const HabitacionesList = () => {
   const [habitaciones, setHabitaciones] = useState([]);
+  const navigate = useNavigate(); // Hook para redirigir a otras rutas
 
   useEffect(() => {
     cargarHabitaciones();
@@ -20,10 +22,15 @@ const HabitacionesList = () => {
   const borrarHabitacion = async (id) => {
     try {
       await eliminarHabitacion(id);
-      cargarHabitaciones();
+      cargarHabitaciones(); // Recargar la lista después de eliminar
     } catch (error) {
       console.error("Error al eliminar habitación:", error);
     }
+  };
+
+  const editarHabitacion = (id) => {
+    // 👇 Esta es la línea que redirige al formulario de edición
+    navigate(`/admin/editar-habitacion/${id}`);
   };
 
   return (
@@ -50,12 +57,20 @@ const HabitacionesList = () => {
                   <p className="card-text">{hab.descripcion}</p>
                   <p><strong>Precio:</strong> ${hab.precioPorNoche} COP</p>
                   <p><strong>Capacidad:</strong> {hab.capacidad} personas</p>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => borrarHabitacion(hab.id)}
-                  >
-                    Eliminar
-                  </button>
+                  <div className="d-flex justify-content-between">
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={() => editarHabitacion(hab.id)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => borrarHabitacion(hab.id)}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

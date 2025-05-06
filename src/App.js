@@ -55,11 +55,11 @@ function App() {
       className="main"
       style={{
         backgroundImage: `url(${fondo})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "100vh",
-        color: "white",
-        position: "relative",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        color: 'white',
+        position: 'relative',
       }}
     >
       <img src={logo} alt="Logo" className="logo" />
@@ -81,38 +81,27 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  href=""
-                  className="nav-link active"
-                  to="/"
-                  onClick={clic2}
-                >
-                  INICIO
-                </Link>
+                <Link className="nav-link active" to="/">INICIO</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/habitaciones">
-                  HABITACIONES
-                </Link>
+                <Link className="nav-link" to="/habitaciones">HABITACIONES</Link>
               </li>
             </ul>
 
-            <span class="center-title">JIREEH</span>
+            <div className="center-title mx-auto d-none d-lg-block">
+              JIREH
+            </div>
 
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/servicios">
-                  SERVICIOS
-                </Link>
+                <Link className="nav-link" to="/servicios">SERVICIOS</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contacto">
-                  CONTACTANOS
-                </Link>
+                <Link className="nav-link" to="/contacto">CONTACTANOS</Link>
               </li>
             </ul>
 
-            <div type="button" className="user-icon ms-3" onClick={clic}>
+            <div className="user-icon ms-3" onClick={clic}>
               👤
             </div>
           </div>
@@ -123,13 +112,9 @@ function App() {
       {location.pathname === "/" && (
         <div className="content">
           <div className="text-box">
-            <h3>Bienvenidos</h3>
-            <h1>
-              Donde la naturaleza y la diversión
-              <br />
-              se encuentran
-            </h1>
-
+            <h3>BIENVENIDOS</h3>
+            <h1>Donde la naturaleza y la diversión<br />se encuentran</h1>
+            <p>San Carlos Antioquia</p>
             <button onClick={clic2}>RESERVA AHORA</button>
           </div>
 
@@ -147,12 +132,8 @@ function App() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <a href="#" className="forgot">
-                ¿Olvidaste tu contraseña?
-              </a>
-              <button className="login-btn" onClick={handleLogin}>
-                Ingresar
-              </button>
+              <a href="#" className="forgot">¿Olvidaste tu contraseña?</a>
+              <button className="login-btn" onClick={handleLogin}>Ingresar</button>
             </div>
           )}
 
@@ -215,8 +196,9 @@ function App() {
         <Route path="/habitaciones" element={<Habitaciones />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path="/admin/*" element={<Admin />} /> {/* 🔥 RUTA AL ADMIN */}
+        <Route path="/admin/*" element={<Admin />} /> 
       </Routes>
+
     </div>
   );
 }
